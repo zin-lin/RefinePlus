@@ -4,6 +4,8 @@
 - This is where the fun begins
 - Here the features include
 - Modern UI
+  - ![UI](./img/snp1.png)
+  - ![UI](./img/snp2.png)
   - ![UI](./img/sc1.png)
 - Built with `React`
 - Authentication to Lock your Project from other users on the same `VM/PC`
