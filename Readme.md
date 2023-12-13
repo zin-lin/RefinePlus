@@ -13,3 +13,5 @@
   - ![UI for sc3](./img/sc3.png)
 - Analysis on `CSV` meta data
   - ![UI for sc4](./img/sc4.png)
+- Analysis on `CSV` Rows
+  - ![UI for sc4](./img/snp3.png)
