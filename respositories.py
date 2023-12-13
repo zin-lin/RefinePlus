@@ -1,9 +1,11 @@
 from uuid import uuid4
 from flask import *
 import os
-
+import traceback
 import models
 from models import get_uid
+import pandas as pd
+import numpy as np
 
 # class :: Book
 class Project():
@@ -289,7 +291,8 @@ class Project():
         filename = os.path.join(base,bid + '.csv')
         try:
             with open(filename, 'r') as file:
-                text = file.read()
+
+                text = file.read().replace('ï»¿','')
                 first_line = text.split('\n')[0]
                 list = first_line.split(',')
                 count = 0
@@ -301,3 +304,37 @@ class Project():
                 return {'status':1, 'attributes': list, 'len':count-1}
         except:
             return {'status':0, 'message':'empty file'}
+
+        #
+    @staticmethod
+    def get_project_rows_len(lens, bid):
+        base = os.path.join('instance', bid)
+        filename = os.path.join(base, bid + '.csv')
+        try:
+            with open(filename, 'r') as file:
+                text = file.read().replace('ï»¿','')
+                df = pd.read_csv(filename)
+                first_line = text.split('\n')[0]
+                list = first_line.split(',')
+                rows = []
+                lines = text.split('\n')
+                leng = len(lines)
+                count = 0
+                for i in range(1, leng):
+                    if lines[i] != '':
+                        row = lines[i].split(',')
+                        rowPro = {}
+                        for att in range(len(list)):
+                            item = df[list[att]][i-1]
+                            list[att] = list[att].replace('ï»¿', '')
+
+                            rowPro[list[att]] = str(item)
+                        rows.append(rowPro)
+                        count+=1
+                    if count>1501:
+                        break
+
+                return {'status': 1, 'attributes': list, 'len': count, 'rows':rows}
+        except Exception:
+            traceback.print_exc()
+            return {'status': 0, 'message': 'empty file'}

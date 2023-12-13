@@ -1,0 +1,25 @@
+{
+  "short_name": "Refine+",
+  "display":"standalone",
+  "name": "Annex Refine+",
+  "icons": [
+    {
+      "src": "Rp.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "Rp.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "Rp.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "theme_color": "#000000",
+  "background_color": "#070B0E"
+}

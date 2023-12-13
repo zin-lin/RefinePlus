@@ -239,6 +239,12 @@ def get_project_details(bid):
 
     return respositories.Project.get_project_details(bid)
 
+# Get Rows
+@app.route('/api/get-project-rows/<len>/<pid>', methods = ['GET'])
+@cross_origin()
+def get_project_rows(len, pid):
+    return respositories.Project.get_project_rows_len(len, pid)
+
 # index
 @app.route('/')
 def index():
