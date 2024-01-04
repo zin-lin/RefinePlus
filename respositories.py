@@ -338,3 +338,18 @@ class Project():
         except Exception:
             traceback.print_exc()
             return {'status': 0, 'message': 'empty file'}
+
+    @staticmethod
+    def change_cell (value, column, index, bid):
+        base = os.path.join('instance', bid)
+        filename = os.path.join(base, bid + '.csv')
+        try:
+            with open(filename, 'r') as file:
+                text = file.read().replace('ï»¿', '')
+                df = pd.read_csv(filename)
+                df.at[index, column] = value
+                df.to_csv(filename, index = False) # No indexing
+                return 'success'
+
+        except:
+            return 'file deleted', 404

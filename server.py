@@ -245,6 +245,18 @@ def get_project_details(bid):
 def get_project_rows(len, pid):
     return respositories.Project.get_project_rows_len(len, pid)
 
+@app.route('/api/change-cell/', methods = ['POST'])
+def change_cell():
+    bid = request.form.get('bid')
+    att = request.form.get('att')
+    idx = (int)(request.form.get('idx')) # cast to int
+    val = request.form.get('val')
+    print(att)
+    print(idx)
+    print(val)
+
+    return respositories.Project.change_cell(val, att, idx, bid)
+
 # index
 @app.route('/')
 def index():

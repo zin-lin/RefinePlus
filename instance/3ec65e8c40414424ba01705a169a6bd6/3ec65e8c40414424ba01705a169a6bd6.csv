@@ -999,3 +999,5 @@ checking_status,credit_history,purpose,credit_amount,saving_status,employment,pe
 'no checking','existing paid','radio/tv',0<=X<2000,'<100','>=7','male single',20<=X<40,'skilled',good
 '<0','existing paid','radio/tv',0<=X<2000,'<100','1<=X<4','male single',20<=X<40,'skilled',bad
 '0<=X<200','critical/other existing credit','used car',4000<=X<6000,'100<=X<500',unemployed,'male single',20<=X<40,'skilled',good
+,,,0<=X<2001,,,,,,
+,,radio,,,,,,,
